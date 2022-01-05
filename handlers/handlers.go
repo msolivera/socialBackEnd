@@ -6,6 +6,8 @@ import (
 	"os"
 
 	"github.com/gorilla/mux"
+	"github.com/msolivera/socialTwittorBackEnd/middlew"
+	"github.com/msolivera/socialTwittorBackEnd/routers"
 	"github.com/rs/cors"
 )
 
@@ -15,6 +17,11 @@ ACA VOY A VER LAS RUTAS DE LA API
 func Manejadores() {
 
 	router := mux.NewRouter()
+	//Asi es como se definen las rutas.
+	//el HandrleFunc sabe que si se pone determinada ruta va a llamar al middleware que hace determinanda funcion
+	//en este caso el middleware chequea la BD, si esta OK, se continua con la ejecucion
+	//y luego hay que ponerle que tipo de metodo va a ser el que se pida en esa ruta.
+	router.HandleFunc("/registro", middlew.ChequeoDB(routers.Registro)).Methods("POST")
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = "8080"
