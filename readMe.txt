@@ -22,4 +22,7 @@ heroku login
     go get github.com/dgrijalva/jwt-go
     go get github.com/rs/cors
 
-
+IMPORTANTE PARA QUE FUNCIONEN LAS IMPORTACIONES DE MODULOS LOCALES:
+el proyecto debe estar guardado en la carpeta de instalacion de go
+En mi caso: C:\Program Files\Go\src\github.com\msolivera\socialTwittorBackEnd
+sino hacemos esto NO FUNCIONA
