@@ -24,6 +24,8 @@ func Manejadores() {
 	router.HandleFunc("/registro", middlew.ChequeoDB(routers.Registro)).Methods("POST")
 	//comparten misma cadena de middleware
 	router.HandleFunc("/login", middlew.ChequeoDB(routers.Login)).Methods("POST")
+	///////
+	router.HandleFunc("/verPerfil", middlew.ChequeoDB(middlew.ValidoJWT(routers.VerPerfil))).Methods("GET")
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = "8080"
