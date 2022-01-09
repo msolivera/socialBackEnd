@@ -22,6 +22,8 @@ func Manejadores() {
 	//en este caso el middleware chequea la BD, si esta OK, se continua con la ejecucion
 	//y luego hay que ponerle que tipo de metodo va a ser el que se pida en esa ruta.
 	router.HandleFunc("/registro", middlew.ChequeoDB(routers.Registro)).Methods("POST")
+	//comparten misma cadena de middleware
+	router.HandleFunc("/login", middlew.ChequeoDB(routers.Login)).Methods("POST")
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = "8080"
