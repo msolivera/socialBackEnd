@@ -28,6 +28,7 @@ func Manejadores() {
 	router.HandleFunc("/verPerfil", middlew.ChequeoDB(middlew.ValidoJWT(routers.VerPerfil))).Methods("GET")
 	router.HandleFunc("/modificarPerfil", middlew.ChequeoDB(middlew.ValidoJWT(routers.ModificarPerfil))).Methods("PUT")
 	router.HandleFunc("/tweet", middlew.ChequeoDB(middlew.ValidoJWT(routers.GraboTweet))).Methods("POST")
+	router.HandleFunc("/leoTweet", middlew.ChequeoDB(middlew.ValidoJWT(routers.LeoTweet))).Methods("GET")
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = "8080"
